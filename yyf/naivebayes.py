@@ -62,8 +62,9 @@ class NaiveBayes:
         pre = 0.
         for lbl, psg in self.data_test:
             lbl = self.label2ind[lbl]
-
-            pre +== lbl in self.predict(psg, True)[:topk]
+            post = np.array(self.predict(psg, True))
+            post = post > post[lbl]
+            pre += np.sum(post) < topk
         return pre / len(self.data_test)
 
     def train_precision(self):

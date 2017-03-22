@@ -27,14 +27,15 @@ dataset = read_data(DATADIR)
 
 precisions = []
 for d in tqdm(range(1, 11)):
-    topk = [1]
+    topk = [1, 3, 5]
     pre = []
     for test,train in tqdm(dataset.partition()):
         nb = NaiveBayes(test, train, dataset.labels, d / 10.)
         nb.train()
         for k in topk:
             pre.append(nb.precision(k))
-        # pre.append(nb.train_precision())
+        pre.append(nb.train_precision())
     precisions.append(np.mean(pre, axis=0))
 
+print ("Final results:")
 print(precisions)
