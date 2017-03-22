@@ -9,6 +9,7 @@ export PYTHONPATH=$PYTHONPATH:$BAYESDIR:$BAYESDIR/weibo
 
 rsync -auv $BAYESDIR/weibo/* $GITDIR/yyf
 
-
+git commit -am "$(date)"
+git push
 
 
