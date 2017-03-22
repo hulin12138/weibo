@@ -7,7 +7,7 @@ GITDIR=/home/yyf/Documents/ml/introduction2ml/weibo
 
 export PYTHONPATH=$PYTHONPATH:$BAYESDIR:$BAYESDIR/weibo
 
-rsync -auv $BAYESDIR $GITDIR/yyf
+rsync -auv $BAYESDIR/weibo/* $GITDIR/yyf
 
 
 
