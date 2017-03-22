@@ -2,12 +2,12 @@
 
 
 BAYESDIR=/home/yyf/Documents/codes/pycharm/ML/
-GITDIR=/home/yyf/Documents/ml/introduction2ml/weibo/
+GITDIR=/home/yyf/Documents/ml/introduction2ml/weibo
 
 
 export PYTHONPATH=$PYTHONPATH:$BAYESDIR:$BAYESDIR/weibo
 
-rsync $BAYESDIR $GITDIR/yyf
+rsync -auv $BAYESDIR $GITDIR/yyf
 
 
 
