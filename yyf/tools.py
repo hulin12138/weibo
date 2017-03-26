@@ -89,10 +89,19 @@ class DataSet:
                 continue
             test = self.input[begin: right]
             left = self.input[0:begin]
-            right = self.input[right: right+step]
+            right = self.input[right:]
             left.extend(right)
+            # test and train data set. label-passage pairs.
             yield (test, left)
 
+    def word_dict(self):
+        wd = WordDict()
+        for psgs in self.data.values():
+            for psg in psgs:
+                for ng in psg:
+                    wd.add_ngram(ng)
+        wd.arrange()
+        return wd
 
 def read_data(datadir):
     dataset = DataSet()
