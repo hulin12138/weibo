@@ -32,10 +32,10 @@ dataset = read_data(DATADIR)
 
 if USENVIVEBAYES:
     precisions = []
-    for d in tqdm(range(1, 11, 2)):
+    for d in range(1, 11, 2):
         topk = [1, 2]
         tpre = []
-        for test,train in tqdm(dataset.partition()):
+        for test,train in dataset.partition():
             pre = []
             nb = NaiveBayes(test, train, dataset.labels, d / 10.)
             nb.train()

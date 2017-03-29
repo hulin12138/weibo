@@ -48,6 +48,10 @@ class NaiveBayes:
         assert(abs(np.sum(self.condition_probability) - self.num_classes) < 1e-5)
 
     def predict(self, passage, all_prob=False):
+        '''
+        If all_prob is True, then return the probabilities predicted.
+        Else return a label(string).
+        '''
         post = np.zeros(shape=(self.num_classes), dtype=np.float64)
         for w in passage:
             if self.word_dict.dict.has_key(w):

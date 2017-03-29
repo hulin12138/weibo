@@ -192,6 +192,9 @@ class Softmax:
         return -1
 
     def predict(self, X):
+        '''
+        :return: the index indicating which class is optimal.
+        '''
         Z, A = self.forward_propagation(X)
         return A[-1]
 

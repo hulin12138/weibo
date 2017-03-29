@@ -37,6 +37,9 @@ class WordDict:
                 self.dict.pop(k)
 
     def arrange(self):
+        '''
+        Build up the index of ngram and its rank.
+        '''
         self.calc_freq()
         self.ind2ngram = self.dict.keys()
         self.ngram2ind = {}
@@ -80,6 +83,11 @@ class DataSet:
         random.shuffle(self.input)
 
     def partition(self, nsets=10):
+        '''
+        :return: (test,train) pairs, and test and train data format as a list likes:
+                [(label, passage), (label, passage), ...], label and passage are not
+                mapped to vectors and this should be done when used.
+        '''
         self.__shuffle__()
         step = int(len(self.input) / nsets)
         # print("dataset partition wit step %d, last step %d " % (step, len(self.input) % step))
@@ -95,6 +103,9 @@ class DataSet:
             yield (test, left)
 
     def word_dict(self):
+        '''
+        Arrange data in self.data to a WordDict object which has data manipulating methods.
+        '''
         wd = WordDict()
         for psgs in self.data.values():
             for psg in psgs:
@@ -105,7 +116,7 @@ class DataSet:
 
 def read_data(datadir):
     dataset = DataSet()
-    for dir in tqdm(os.listdir(datadir)):
+    for dir in os.listdir(datadir):
         label = dir.decode(encoding="utf-8")
         # print (u"process class: " + label)
         passages = []
