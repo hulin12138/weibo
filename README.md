@@ -13,6 +13,12 @@
 - git push origin/branchname
 - git pull __从git上下载全部的branches__
 - git merge....
+- 多人合并代码
+    - 首先fork原来的工程到自己的github帐号里
+    - 然后clone和commit都以自己的帐号下的repo
+    - 自己写的代码提交到自己的帐号下面, 然后在github 上new pull request将自己修改的代码申请merge到原来项目里, 等待原来的作者合并
+    - 看看
+
 
 ## 代码运行依赖包
 ### Yan Yongfei
